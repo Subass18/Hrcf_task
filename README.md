@@ -1,33 +1,19 @@
-# 🛒 Full Stack E-Commerce Web App
+# E-Commerce Web Application (Django + React)
 
-A modern e-commerce web application built with:
-
-- 🐍 Django (Backend API with REST)
-- ⚛️ React (Frontend SPA)
-- 🔐 JWT Authentication
-- 🐘 PostgreSQL
-- 🚀 Dockerized for Dev & Prod
-- 🧵 Celery + Redis for async tasks (e.g., email, order processing)
+This project is a full-stack e-commerce web application built using **Django** for the backend and **React.js** for the frontend. It includes key features such as user authentication, product listings, cart management, and order processing, and is designed to demonstrate integration between modern frontend and backend technologies.
 
 ---
 
-## 📸 Demo
+## 🔧 Technologies Used
 
-![App Screenshot](https://via.placeholder.com/1000x400.png?text=Demo+Image+Here)
-
----
-
-## 🧰 Tech Stack
-
-| Category     | Tech                           |
-|--------------|--------------------------------|
-| Frontend     | React, Axios, React Router     |
-| Backend      | Django, DRF, Simple JWT        |
-| Database     | PostgreSQL                     |
-| Async Tasks  | Celery, Redis                  |
-| DevOps       | Docker, Docker Compose         |
+- **Frontend**: React.js, Axios, React Router DOM
+- **Backend**: Django, Django REST Framework (DRF)
+- **Authentication**: JWT (via `djangorestframework-simplejwt`)
+- **Database**: PostgreSQL
+- **Asynchronous Tasks**: Celery with Redis
+- **Deployment Ready**: Docker & Docker Compose
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
