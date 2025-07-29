@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: ecommerce_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Subass@24
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Make sure this file exists at root
+    command: gunicorn ecommerce.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_NAME: ecommerce_db
+      DB_USER: postgres
+      DB_PASSWORD: Subass@24
+      DB_HOST: db
+      DB_PORT: 5432
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile  # Make sure frontend/Dockerfile exists
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules  # Avoid node_modules conflict
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    command: npm start
+    depends_on:
+      - web
+
+volumes:
+  pgdata:
